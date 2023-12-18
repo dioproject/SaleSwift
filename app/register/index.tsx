@@ -1,10 +1,16 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 export default function Register() {
     return (
-        <View className="flex-1 justify-center items-center">
+        <View >
             <Text>Register</Text>
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        
+    }
+})

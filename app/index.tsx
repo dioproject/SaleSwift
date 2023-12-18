@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { View, Image, Text } from "react-native";
+import { View, Image, Text, StyleSheet } from "react-native";
 import AppIntroSlider from "react-native-app-intro-slider";
 import { SIZES, COLORS } from "../constants/theme";
+import { StatusBar } from "expo-status-bar";
 
 const slides = [
     {
@@ -24,85 +25,89 @@ const slides = [
     },
 ]
 
-const landing: React.FC = () => {
+export default function App() {
     const [showRegister, setShowRegister] = useState(true);
 
     const buttonLabel = (label: string) => {
         return (
-            <View className="p-3" style={{padding: 5,}}>
-                <Text
-                    className="font-semibold font-sm"
-                    style={{
-                        color: COLORS.title,
-                        fontWeight: "bold",
-                        fontSize: 16,
-                    }}
-                >
+            <View style={{padding: 5,}}>
+                <Text style={styles.buttonLabel}>
                     {label}
                 </Text>
             </View>
         )
     }
 
+    if(!showRegister) {
+        return (
+            <AppIntroSlider 
+                data={slides}
+                renderItem={({item}) => {
+                    return (
+                        <View style={styles.container}>
+                            <Image 
+                                source={item.image}
+                                style={styles.img}
+                                resizeMode="contain"
+                            />
+                            <Text style={styles.title}>
+                                {item.name}
+                            </Text>
+                            <Text style={styles.desc}
+                            >
+                                {item.description}
+                            </Text>
+                        </View>
+                    )
+                }}
+                activeDotStyle={{
+                    backgroundColor: COLORS.background,
+                    width: 30,
+                }}
+                showSkipButton
+                renderNextButton={() => buttonLabel("Next")}
+                renderSkipButton={() => buttonLabel("Skip")}
+                renderDoneButton={() => buttonLabel("Done")}
+                onDone={() => {
+                    setShowRegister(true);                
+                }}
+            />
+            
+        );
+    }    
+    
     return (
-        <AppIntroSlider 
-            data={slides}
-            renderItem={({item}) => {
-                return (
-                    <View className="flex-1 items-center p-3 pt-200"
-                        style={{
-                            flex: 1,
-                            alignItems: "center",
-                            padding: 5,
-                            paddingTop: 150,
-                        }}
-                    >
-                        <Image 
-                            source={item.image}
-                            style={{
-                                width: SIZES.width = 400,
-                                height: SIZES.height = 400,
-                            }}
-                            resizeMode="contain"
-                        />
-                        <Text
-                            className="font-bold text-center text-2xl"
-                            style={{
-                                color: COLORS.title,
-                                textAlign: "center",
-                                fontSize: 22,
-                                fontWeight: "bold",
-                            }}
-                        >
-                            {item.name}
-                        </Text>
-                        <Text
-                            className="text-center pt-1.5"
-                            style={{
-                                color: COLORS.title,
-                                textAlign: "center",
-                                paddingTop: 3
-                            }}
-                        >
-                            {item.description}
-                        </Text>
-                    </View>
-                )
-            }}
-            activeDotStyle={{
-                backgroundColor: COLORS.background,
-                width: 30,
-            }}
-            showSkipButton
-            renderNextButton={() => buttonLabel("Next")}
-            renderSkipButton={() => buttonLabel("Skip")}
-            renderDoneButton={() => buttonLabel("Done")}
-            onDone={() => {
-                setShowRegister(true);
-                
-            }}
-        />
+        <View>
+            <Text>Testing</Text>
+        </View>
     )
 }
 
-export default landing;
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: "center",
+        padding: 5,
+        paddingTop: 150,
+    },
+    img: {
+        width: SIZES.width = 400,
+        height: SIZES.height = 400,
+    },
+    title: {
+        color: COLORS.font,
+        textAlign: "center",
+        fontSize: 22,
+        fontWeight: "bold",
+    },
+    desc: {
+        color: COLORS.font,
+        textAlign: "center",
+        paddingTop: 3
+    },
+    buttonLabel: {
+        color: COLORS.font,
+        fontWeight: "bold",
+        fontSize: 16,
+    },
+});
