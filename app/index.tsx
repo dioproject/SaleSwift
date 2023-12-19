@@ -1,113 +1,118 @@
-import React, { useState } from "react";
-import { View, Image, Text, StyleSheet } from "react-native";
-import AppIntroSlider from "react-native-app-intro-slider";
-import { SIZES, COLORS } from "../constants/theme";
-import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { View, Image, Text, SafeAreaView, TouchableOpacity } from "react-native";
+import Spacing from "../constants/Spacing";
+import Layout from "../constants/Layout";
+import FontSize from "../constants/FontSize";
+import Colors from "../constants/Colors";
+import { useRouter } from "expo-router";
+import { useFonts } from "../constants/Fonts";
 
-const slides = [
-    {
-        id : 1,
-        name : "Sale",
-        description : "An application that helps small - medium businesses in the community",
-        image : require("../assets/images/slide1.png"),
-    },
-    {
-        id : 2,
-        name : "Cashier",
-        description : "Cashier integrated with digital payment method technology",
-        image : require("../assets/images/slide2.png"),
-    },
-    {
-        id : 3,
-        name : "Efficiency",
-        description : "Saves time and is practical",
-        image : require("../assets/images/slide3.png"),
-    },
-]
+const IntroScreen = () => {
+    const router = useRouter();
 
-export default function App() {
-    const [showRegister, setShowRegister] = useState(true);
+    const fontsLoaded = useFonts();
 
-    const buttonLabel = (label: string) => {
-        return (
-            <View style={{padding: 5,}}>
-                <Text style={styles.buttonLabel}>
-                    {label}
-                </Text>
-            </View>
-        )
+    if(!fontsLoaded){
+        return null;
     }
 
-    if(!showRegister) {
-        return (
-            <AppIntroSlider 
-                data={slides}
-                renderItem={({item}) => {
-                    return (
-                        <View style={styles.container}>
-                            <Image 
-                                source={item.image}
-                                style={styles.img}
-                                resizeMode="contain"
-                            />
-                            <Text style={styles.title}>
-                                {item.name}
-                            </Text>
-                            <Text style={styles.desc}
-                            >
-                                {item.description}
-                            </Text>
-                        </View>
-                    )
-                }}
-                activeDotStyle={{
-                    backgroundColor: COLORS.background,
-                    width: 30,
-                }}
-                showSkipButton
-                renderNextButton={() => buttonLabel("Next")}
-                renderSkipButton={() => buttonLabel("Skip")}
-                renderDoneButton={() => buttonLabel("Done")}
-                onDone={() => {
-                    setShowRegister(true);                
-                }}
-            />
-            
-        );
-    }    
-    
     return (
-        <View>
-            <Text>Testing</Text>
-        </View>
+        <SafeAreaView>
+            <View>
+                <Image
+                    source={require("../assets/images/slide1.png")}
+                    style={{
+                        height: Layout.height / 2.5,
+                    }}
+                    resizeMode="contain"
+                />
+                <View
+                    style={{
+                        paddingHorizontal: Spacing * 4,
+                        paddingTop: Spacing * 4,
+                    }}
+                >
+                    <Text
+                        style={{
+                            fontSize: FontSize.xxLarge,
+                            color: Colors.primary,
+                            fontFamily: "poppins-bold",
+                            textAlign: "center",
+
+                        }}
+                    >
+                        Let's join to help your business
+                    </Text>
+                    <Text
+                        style={{
+                            textAlign: "center",
+                            fontFamily: "poppins-regular",
+                            color: Colors.text,
+                            marginTop: Spacing * 2,
+                        }}
+                    >
+                        An application that helps small - medium businesses in the community
+                    </Text>
+                </View>
+                <View
+                    style={{
+                        paddingHorizontal: Spacing * 2,
+                        paddingTop: Spacing * 6,
+                        flexDirection: "row",
+                    }}
+                >
+                    <TouchableOpacity
+                        onPress={() => router.push("/login/")}
+                        style={{
+                            backgroundColor: Colors.primary,
+                            paddingVertical: Spacing * 1.5,
+                            paddingHorizontal: Spacing * 2,
+                            width: "48%",
+                            borderRadius: Spacing,
+                            shadowColor: Colors.primary,
+                            shadowOffset: {
+                                width: 0,
+                                height: Spacing,
+                            },
+                            shadowOpacity: 0.3,
+                            shadowRadius: Spacing,
+                        }}
+                    >
+                        <Text
+                            style={{
+                                fontFamily: "poppins-bold",
+                                color: Colors.onPrimary,
+                                fontSize: FontSize.large,
+                                textAlign: "center",
+                            }}
+                        >
+                            Login
+                        </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => router.push("/register/")}
+                        style={{
+                            paddingVertical: Spacing * 1.5,
+                            paddingHorizontal: Spacing * 2,
+                            width: "48%",
+                            borderRadius: Spacing,
+                        }}
+                    >
+                        <Text
+                            style={{
+                                fontFamily: "poppins-bold",
+                                color: Colors.text,
+                                fontSize: FontSize.large,
+                                textAlign: "center",
+                            }}
+                        >
+                            Register
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </SafeAreaView>
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: "center",
-        padding: 5,
-        paddingTop: 150,
-    },
-    img: {
-        width: SIZES.width = 400,
-        height: SIZES.height = 400,
-    },
-    title: {
-        color: COLORS.font,
-        textAlign: "center",
-        fontSize: 22,
-        fontWeight: "bold",
-    },
-    desc: {
-        color: COLORS.font,
-        textAlign: "center",
-        paddingTop: 3
-    },
-    buttonLabel: {
-        color: COLORS.font,
-        fontWeight: "bold",
-        fontSize: 16,
-    },
-});
+export default IntroScreen;
