@@ -1,5 +1,4 @@
-const background: string = "#161A30";
-const white: string = "#fff"
+const white: string = "#fff";
 const black: string = "#000";
 const dark: string = "#626262";
 const blue: string = "#1F41BB";
@@ -9,7 +8,7 @@ const lightBlue: string = "#f1f4ff";
 export default {
   darkText: dark,
   text: black,
-  background: background,
+  background: white,
   primary: blue,
   onPrimary: white,
   active: blue,

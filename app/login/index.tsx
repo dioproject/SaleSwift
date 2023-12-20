@@ -1,22 +1,15 @@
 import React from "react";
 import { View, Text, SafeAreaView, TextInput, TouchableOpacity } from "react-native";
 import Spacing from "../../constants/Spacing";
-import { useFonts } from "../../constants/Fonts";
 import FontSize from "../../constants/FontSize";
 import Colors from "../../constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 import AppTextInput from "../../components/AppTextInput";
 import { useRouter } from "expo-router";
-
+import TitleComponent from "../../components/Title";
 
 const LoginScreen = () => {
     const router = useRouter();
-
-    const fontsLoaded = useFonts();
-
-    if(!fontsLoaded){
-        return null;
-    }
 
     return (
         <SafeAreaView>
@@ -30,20 +23,16 @@ const LoginScreen = () => {
                         alignItems: "center",
                     }}
                 >
+                    <TitleComponent 
+                            text="Login Here" 
+                            style={{
+                                fontSize: FontSize.xLarge, 
+                                marginVertical: Spacing * 3,
+                            }} 
+                        />
                     <Text
                         style={{
-                            fontSize: FontSize.xLarge,
-                            color: Colors.primary,
-                            fontFamily: "poppins-bold",
-                            marginVertical: Spacing * 3,
-
-                        }}
-                    >
-                        Login here
-                    </Text>
-                    <Text
-                        style={{
-                            fontFamily: "poppins-semiBold",
+                            fontWeight: "600",
                             fontSize: FontSize.large,
                             maxWidth: "60%",
                             textAlign: "center",
@@ -63,7 +52,7 @@ const LoginScreen = () => {
                 <View>
                     <Text
                         style={{
-                            fontFamily: "poppins-semiBold",
+                            fontWeight: "600",
                             fontSize: FontSize.small,
                             color: Colors.primary,
                             alignSelf: "flex-end",
@@ -89,7 +78,7 @@ const LoginScreen = () => {
                 >
                     <Text
                         style={{
-                            fontFamily: "poppins-bold",
+                            fontWeight: "bold",
                             color: Colors.onPrimary,
                             textAlign: "center",
                             fontSize: FontSize.large,
@@ -106,8 +95,8 @@ const LoginScreen = () => {
                 >
                     <Text
                         style={{
-                            fontFamily: "poppins-semiBold",
-                            color: Colors.onPrimary,
+                            fontWeight: "600",
+                            color: Colors.text,
                             textAlign: "center",
                             fontSize: FontSize.small,
                         }}
@@ -122,7 +111,7 @@ const LoginScreen = () => {
                 >
                     <Text
                         style={{
-                            fontFamily: "poppins-semiBold",
+                            fontWeight: "600",
                             color: Colors.primary,
                             textAlign: "center",
                             fontSize: FontSize.small,

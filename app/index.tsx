@@ -5,24 +5,24 @@ import Layout from "../constants/Layout";
 import FontSize from "../constants/FontSize";
 import Colors from "../constants/Colors";
 import { useRouter } from "expo-router";
-import { useFonts } from "../constants/Fonts";
+import TitleComponent from "../components/Title";
+
 
 const IntroScreen = () => {
     const router = useRouter();
 
-    const fontsLoaded = useFonts();
-
-    if(!fontsLoaded){
-        return null;
-    }
-
     return (
         <SafeAreaView>
-            <View>
+            <View
+                style={{
+                    marginVertical: Spacing * 3,
+                }}
+            >
                 <Image
                     source={require("../assets/images/slide1.png")}
                     style={{
                         height: Layout.height / 2.5,
+                        width: Layout.width,
                     }}
                     resizeMode="contain"
                 />
@@ -32,23 +32,13 @@ const IntroScreen = () => {
                         paddingTop: Spacing * 4,
                     }}
                 >
-                    <Text
-                        style={{
-                            fontSize: FontSize.xxLarge,
-                            color: Colors.primary,
-                            fontFamily: "poppins-bold",
-                            textAlign: "center",
-
-                        }}
-                    >
-                        Let's join to help your business
-                    </Text>
+                    <TitleComponent text="Let's join to help your business" style={{fontSize: FontSize.xxLarge, textAlign: "center"}} />
                     <Text
                         style={{
                             textAlign: "center",
-                            fontFamily: "poppins-regular",
+                            fontWeight: "normal",
                             color: Colors.text,
-                            marginTop: Spacing * 2,
+                            marginVertical: Spacing * 2,
                         }}
                     >
                         An application that helps small - medium businesses in the community
@@ -59,6 +49,7 @@ const IntroScreen = () => {
                         paddingHorizontal: Spacing * 2,
                         paddingTop: Spacing * 6,
                         flexDirection: "row",
+                        margin: Spacing,
                     }}
                 >
                     <TouchableOpacity
@@ -80,7 +71,7 @@ const IntroScreen = () => {
                     >
                         <Text
                             style={{
-                                fontFamily: "poppins-bold",
+                                fontWeight: "bold",
                                 color: Colors.onPrimary,
                                 fontSize: FontSize.large,
                                 textAlign: "center",
@@ -100,7 +91,7 @@ const IntroScreen = () => {
                     >
                         <Text
                             style={{
-                                fontFamily: "poppins-bold",
+                                fontWeight: "600",
                                 color: Colors.text,
                                 fontSize: FontSize.large,
                                 textAlign: "center",
