@@ -7,6 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 import AppTextInput from "../../components/AppTextInput";
 import { useRouter } from "expo-router";
 import TitleComponent from "../../components/Title";
+import AppButton from "../../components/AppButton";
 
 const RegisterScreen: React.FC = () => {    
     const router = useRouter();
@@ -52,32 +53,7 @@ const RegisterScreen: React.FC = () => {
                         <AppTextInput placeholder="Password" secureTextEntry />
                         <AppTextInput placeholder="Confirm Password" secureTextEntry />
                     </View>
-                    <TouchableOpacity
-                        style={{
-                            padding: Spacing * 2,
-                            backgroundColor: Colors.primary,
-                            marginVertical: Spacing *3,
-                            borderRadius: Spacing,
-                            shadowColor: Colors.primary,
-                            shadowOffset: {
-                            width: 0,
-                            height: Spacing,
-                            },
-                            shadowOpacity: 0.3,
-                            shadowRadius: Spacing,
-                        }}
-                    >
-                        <Text
-                            style={{
-                                fontWeight: "bold",
-                                color: Colors.onPrimary,
-                                textAlign: "center",
-                                fontSize: FontSize.large,
-                            }}
-                        >
-                            Register
-                        </Text>
-                    </TouchableOpacity>
+                    <AppButton text="Register" />
                     <TouchableOpacity
                         onPress={() => router.push("/login/")}
                         style={{

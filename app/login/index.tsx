@@ -7,6 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 import AppTextInput from "../../components/AppTextInput";
 import { useRouter } from "expo-router";
 import TitleComponent from "../../components/Title";
+import AppButton from "../../components/AppButton";
 
 const LoginScreen = () => {
     const router = useRouter();
@@ -61,32 +62,7 @@ const LoginScreen = () => {
                         Forgot your password ?
                     </Text>
                 </View>
-                <TouchableOpacity
-                    style={{
-                        padding: Spacing * 2,
-                        backgroundColor: Colors.primary,
-                        marginVertical: Spacing * 3,
-                        borderRadius: Spacing,
-                        shadowColor: Colors.primary,
-                        shadowOffset: {
-                            width: 0,
-                            height: Spacing,
-                        },
-                        shadowOpacity: 0.3,
-                        shadowRadius: Spacing,
-                    }}
-                >
-                    <Text
-                        style={{
-                            fontWeight: "bold",
-                            color: Colors.onPrimary,
-                            textAlign: "center",
-                            fontSize: FontSize.large,
-                        }}
-                    >
-                        Login
-                    </Text>
-                </TouchableOpacity>
+                <AppButton text="Login" />
                 <TouchableOpacity
                     onPress={() => router.push("/register/")}
                     style={{
