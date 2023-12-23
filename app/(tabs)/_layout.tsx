@@ -1,50 +1,52 @@
 import React from "react";
 import { Tabs } from "expo-router";
-import { Ionicons } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
+import { Ionicons, Entypo, FontAwesome } from '@expo/vector-icons';
 
 const BottomBar = () => {
     return(
-        <Tabs>
+        <Tabs
+            screenOptions={{
+                headerShown: false,
+            }}
+        >
             <Tabs.Screen 
-                name="Home"
+                name="home"
                 options={{
                     href: "home",
                     tabBarIcon: ({color}) => (
                         <Ionicons name="home" size={24} color={color} />
                     ),
-                    tabBarLabel: "Home"
+                    tabBarLabel: "Home",
                 }}
             />
             <Tabs.Screen 
-                name="Stock"
+                name="store"
                 options={{
-                    href: "stock",
+                    href: "store",
                     tabBarIcon: ({color}) => (
                         <Entypo name="shopping-cart" size={24} color={color} />
                     ),
-                    tabBarLabel: "Stock"
+                    tabBarLabel: "Store",
                 }}
             />
             <Tabs.Screen 
-                name="History"
+                name="history"
                 options={{
                     href: "history",
                     tabBarIcon: ({color}) => (
                         <FontAwesome name="history" size={24} color={color} />
                     ),
-                    tabBarLabel: "History"
+                    tabBarLabel: "History",
                 }}
             />
             <Tabs.Screen 
-                name="Profile"
+                name="profile"
                 options={{
                     href: "profile",
                     tabBarIcon: ({color}) => (
                         <FontAwesome name="user" size={24} color={color} />
                     ),
-                    tabBarLabel: "Profile"
+                    tabBarLabel: "Profile",
                 }}
             />
         </Tabs>

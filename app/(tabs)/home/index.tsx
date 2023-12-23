@@ -1,23 +1,45 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import Colors from "../../../constants/Colors";
+import Spacing from "../../../constants/Spacing";
 
 const HomePage = () => {
 
     return (
         <View
             style={{
-                justifyContent: "center",
-                alignItems: "center",
+                marginVertical: Spacing * 2,
             }}
         >
-            <Text
-                style={{
-                    color: Colors.text,
-                }}
+            <View
+                className="flex-row p-2.5"
             >
-                Home Page
-            </Text>
+                <Image
+                    className="rounded-full mx-2.5"
+                    source={require("../../../assets/images/user.png")}
+                    style={{
+                        height: Spacing * 4,
+                        width: Spacing * 4,
+                    }}
+                />
+
+                <View
+                    className="flex-1 self-center "
+                >
+                    <Text
+                        className="text-sm font-bold"
+                    >
+                        Dio Galang F
+                    </Text>
+                    <Text
+                        className="text-xs font-600"
+                    >
+                        Admin Cafe Senja
+                    </Text>
+                </View>
+
+                
+            </View>
         </View>
     )
 }

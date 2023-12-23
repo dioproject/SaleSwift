@@ -5,12 +5,10 @@ import Colors from "../../../constants/Colors";
 const ProfilePage = () => {
     return (
         <View
-            style={{
-                justifyContent: "center",
-                alignItems: "center",
-            }}
+            className="flex-1 justify-center align-center"
         >
             <Text
+                className="text-center"
                 style={{
                     color: Colors.text,
                 }}

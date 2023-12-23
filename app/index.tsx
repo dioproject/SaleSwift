@@ -15,7 +15,7 @@ const IntroScreen = () => {
         <SafeAreaView>
             <View
                 style={{
-                    marginVertical: Spacing * 3,
+                    marginVertical: Spacing * 4,
                 }}
             >
                 <Image
@@ -70,11 +70,10 @@ const IntroScreen = () => {
                         }}
                     >
                         <Text
+                            className="font-bold text-center"
                             style={{
-                                fontWeight: "bold",
                                 color: Colors.onPrimary,
                                 fontSize: FontSize.large,
-                                textAlign: "center",
                             }}
                         >
                             Login

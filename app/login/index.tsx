@@ -80,57 +80,6 @@ const LoginScreen = () => {
                         Create new account
                     </Text>
                 </TouchableOpacity>
-                <View
-                    style={{
-                        marginVertical: Spacing * 3,
-                    }}
-                >
-                    <Text
-                        style={{
-                            fontWeight: "600",
-                            color: Colors.primary,
-                            textAlign: "center",
-                            fontSize: FontSize.small,
-                        }}
-                    >
-                        Or continue with
-                    </Text>
-                    <View
-                        style={{
-                            marginTop: Spacing,
-                            flexDirection: "row",
-                            justifyContent: "center",
-                            marginHorizontal: Spacing
-                        }}
-                    >
-                        <TouchableOpacity
-                            style={{
-                                padding: Spacing,
-                                backgroundColor: Colors.gray,
-                                borderRadius: Spacing / 2,
-                            }}
-                        >
-                            <Ionicons 
-                                name="logo-google"
-                                color={Colors.text}
-                                size={Spacing * 2}
-                            />
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={{
-                                padding: Spacing,
-                                backgroundColor: Colors.gray,
-                                borderRadius: Spacing / 2,
-                            }}
-                        >
-                            <Ionicons 
-                                name="logo-facebook"
-                                color={Colors.text}
-                                size={Spacing * 2}
-                            />
-                        </TouchableOpacity>
-                    </View>
-                </View>
             </View>
         </SafeAreaView>
     )
