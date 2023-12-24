@@ -6,14 +6,7 @@ const HomeLayout = () => {
             screenOptions={{
                 headerShown: false,
             }}
-        >
-            <Stack.Screen 
-                name="product"
-                options={{
-                    title: "Products",
-                }}
-            />
-        </Stack>
+        />        
     )
 }
 

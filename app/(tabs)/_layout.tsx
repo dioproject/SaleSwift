@@ -20,13 +20,13 @@ const BottomBar = () => {
                 }}
             />
             <Tabs.Screen 
-                name="store"
+                name="report"
                 options={{
-                    href: "store",
+                    href: "report",
                     tabBarIcon: ({color}) => (
-                        <Entypo name="shopping-cart" size={24} color={color} />
+                        <FontAwesome name="bar-chart" size={24} color={color} />
                     ),
-                    tabBarLabel: "Store",
+                    tabBarLabel: "Report",
                 }}
             />
             <Tabs.Screen 

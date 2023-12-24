@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import Colors from "../../../constants/Colors";
 
-const StorePage = () => {
+const ReportPage = () => {
     return (
         <View
             className="flex-1 justify-center align-center"
@@ -13,10 +13,10 @@ const StorePage = () => {
                     color: Colors.text,
                 }}
             >
-                Store Page
+                Report Page
             </Text>
         </View>
     )
 }
 
-export default StorePage;
+export default ReportPage;
