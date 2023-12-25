@@ -4,7 +4,6 @@ const HomeLayout = () => {
     return (
         <Stack 
             screenOptions={{
-                headerShown: false,
             }}
         />        
     )

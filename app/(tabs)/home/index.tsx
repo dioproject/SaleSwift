@@ -1,8 +1,10 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import Colors from "../../../constants/Colors";
 import Spacing from "../../../constants/Spacing";
 import CardMenu from "../../../components/CardMenu";
+import { router } from "expo-router";
+import Icons from "../../../components/Icon";
 
 const HomePage = () => {
 
@@ -52,12 +54,14 @@ const HomePage = () => {
                         type="font-awesome"
                         color={Colors.primary}
                         text="Product"
+                        onPress={() => router.push("/(tabs)/home/product/")}
                     />
                     <CardMenu 
                         name="layer-group"
                         type="font-awesome-5"
                         color={Colors.primary}
                         text="Category"
+                        onPress={() => router.push("/(tabs)/home/product/")}
                     />
                 </View>
                 <View
@@ -68,13 +72,32 @@ const HomePage = () => {
                         type="font-awesome-5"
                         color={Colors.primary}
                         text="Book Keeping"
+                        onPress={() => router.push("/(tabs)/home/product/")}
                     />
                     <CardMenu 
                         name="settings"
                         type="ionicon"
                         color={Colors.primary}
                         text="Settings"
+                        onPress={() => router.push("/(tabs)/home/product/")}
                     />
+                </View>
+            </View>
+            <View>
+                <View
+                    className="flex-row"
+                >
+                    <Text>
+                        Top Recommended
+                    </Text>
+                    <TouchableOpacity>
+                        <Icons 
+                            name="filter"
+                            type="ionicon"
+                            size={24}
+                            color="black"   
+                        />
+                    </TouchableOpacity>
                 </View>
             </View>
         </View>
