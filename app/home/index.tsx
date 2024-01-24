@@ -1,13 +1,12 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
-import Colors from "../../../constants/Colors";
-import Spacing from "../../../constants/Spacing";
-import CardMenu from "../../../components/CardMenu";
 import { router } from "expo-router";
 import { Icon } from "@rneui/themed";
+import Spacing from "../../constants/Spacing";
+import CardMenu from "../../components/CardMenu";
+import Colors from "../../constants/Colors";
 
-const HomePage = () => {
-
+const DashboardPage = () => {
     return (
         <View
             className="py-5"
@@ -110,4 +109,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage;
+export default DashboardPage;

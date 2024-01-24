@@ -1,20 +1,20 @@
 import { Stack } from "expo-router";
 
-const HomeLayout = () => {
+const PurchaseLayout = () => {
     return (
         <Stack 
             screenOptions={{
-                title: "Product"
+                title: "Purchase"
             }}
         >
-            <Stack.Screen 
+            {/* <Stack.Screen 
                 name="purchase"
                 options={{
                     title: "Purchase",
                 }}
-            />
+            /> */}
         </Stack>        
     )
 }
 
-export default HomeLayout;
+export default PurchaseLayout;
