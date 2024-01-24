@@ -8,7 +8,10 @@ const HomeLayout = () => {
             }}
         >
             <Stack.Screen 
-                name="product"                
+                name="product"
+                options={{
+                    title: "Products",
+                }}
             />
         </Stack>
     )

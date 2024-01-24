@@ -4,16 +4,8 @@ const HomeLayout = () => {
     return (
         <Stack 
             screenOptions={{
-                title: "Product"
             }}
-        >
-            <Stack.Screen 
-                name="purchase"
-                options={{
-                    title: "Purchase",
-                }}
-            />
-        </Stack>        
+        />        
     )
 }
 

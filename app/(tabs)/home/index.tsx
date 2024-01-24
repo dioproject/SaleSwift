@@ -4,7 +4,7 @@ import Colors from "../../../constants/Colors";
 import Spacing from "../../../constants/Spacing";
 import CardMenu from "../../../components/CardMenu";
 import { router } from "expo-router";
-import { Icon } from "@rneui/themed";
+import Icons from "../../../components/Icon";
 
 const HomePage = () => {
 
@@ -44,7 +44,7 @@ const HomePage = () => {
 
             {/* Card Menu */}
             <View
-                className="justify-center items-center my-5"
+                className="justify-center items-center"
             >
                 <View
                     className="flex-row"
@@ -83,25 +83,19 @@ const HomePage = () => {
                     />
                 </View>
             </View>
-            <View
-                className=""
-            >
+            <View>
                 <View
-                    className="flex-row justify-between"
+                    className="flex-row"
                 >
-                    <Text
-                        className="ml-5 font-semibold"
-                    >
-                        Recommendation
+                    <Text>
+                        Top Recommended
                     </Text>
-                    <TouchableOpacity
-                        className="mr-5"
-                    >
-                        <Icon
+                    <TouchableOpacity>
+                        <Icons 
                             name="filter"
                             type="ionicon"
                             size={24}
-                            color="black"
+                            color="black"   
                         />
                     </TouchableOpacity>
                 </View>
